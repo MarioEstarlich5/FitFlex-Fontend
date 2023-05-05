@@ -20,7 +20,7 @@ export const Header = () => {
               <NavDropdown.Divider />
             </NavDropdown>
             <Nav.Link href="/about">Que es FitFlex</Nav.Link>
-            <Nav.Link href="/LoginRegister">Log in</Nav.Link>
+            <Nav.Link href="/LoginRegister">Login</Nav.Link>
           </Navbar.Collapse>
         </Navbar.Collapse>
       </Container>

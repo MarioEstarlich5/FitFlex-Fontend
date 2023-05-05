@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import useLogin  from '../hooks/useLogin';
 
-
 export const Login = ({ setCanvi }) => {
     /* const { formState, handleChange } = useForm({
         email: "",
@@ -17,9 +16,9 @@ export const Login = ({ setCanvi }) => {
 
     return (
         <>
-            <h1 id='h1Login'>Benvinguts a GEO-MIR</h1>
+            <h1 id='h1Login'>Bienvenidos a FitFlex</h1>
 
-            <p id="eslogan">Feel Your Environment</p>
+            <p id="eslogan">Entrena en cualquier lugar, en cualquier momento, con FitFlex ¡Donde sea, siempre en forma!</p>
             <div className='div'>
                 <form className='allForms'>
                     <h3>Login Here</h3>

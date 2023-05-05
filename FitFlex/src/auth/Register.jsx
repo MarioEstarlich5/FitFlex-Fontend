@@ -1,24 +1,19 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from "../userContext";
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router-dom';
 
 export const Register = ({ setCanvi }) => {
+    let navigate = useNavigate();
   let [missatge, setMissatge] = useState("");
   let { authToken,setAuthToken } = useContext(UserContext)
   const { register, handleSubmit,formState: { errors } } = useForm();
-    /* const { formState, handleChange,OnResetForm } = useForm({
-        Rname: "",
-        Remail: "",
-        Rpassword: "",
-        Rpassword2: "",
-    }); 
-    const {Rname,Remail,Rpassword,Rpassword2} = formState */
-    const onSubmit = data => handleRegister(data);
+  const onSubmit = data => handleRegister(data);
   const handleRegister = async (data) => {
       const{Rname,Remail,Rpassword,Rpassword2}=data;
       try{
 
-            const data = await fetch("https://backend.insjoaquimmir.cat/api/register", {
+            const data = await fetch("http://127.0.0.1:8000/api/register", {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json"
@@ -32,6 +27,7 @@ export const Register = ({ setCanvi }) => {
                 if (resposta.success === true) {
                     console.log(resposta.authToken);
                     setAuthToken(resposta.authToken)
+                    navigate("/inicioAuth");
                 }else{
                     setMissatge=(resposta.message);
                 }

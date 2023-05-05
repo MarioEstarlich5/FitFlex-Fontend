@@ -7,6 +7,7 @@ import { Contacto } from './layout/Contacto'
 import { LoginRegister } from './auth/LogingRegister'
 import { Routes, Route } from "react-router-dom";
 import { UserContext } from "./userContext";
+import { InicioAuth } from './InicioAuth'
 
 const App = () => {
   let [authToken, setAuthToken] = useState("");
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contacto' element={<Contacto />} />
         <Route path='/LoginRegister' element={<LoginRegister />} />
+        <Route path='/inicioAuth' element={<InicioAuth />} />
       </Routes>
       </UserContext.Provider>
     </>

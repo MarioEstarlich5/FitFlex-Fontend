@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../userContext";
+import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
-
+    let navigate = useNavigate();
     let { usuari, setUsuari,authToken,setAuthToken,idUser,setIdUser } = useContext(UserContext)
     let [missatge, setMissatge] = useState("");
 
@@ -13,7 +14,7 @@ export const useLogin = () => {
         if ( miStorage.length > 0 ){
 
             try {
-                const data = await fetch("https://backend.insjoaquimmir.cat/api/user", {
+                const data = await fetch("http://127.0.0.1:8000/api/user", {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
@@ -27,6 +28,7 @@ export const useLogin = () => {
                     setAuthToken(miStorage)
                     setUsuari(resposta.user.email);
                     setIdUser(resposta.user.id);
+                    console.log(resposta.user);
                 } else {
                     setAuthToken("")
                 }
@@ -45,7 +47,7 @@ export const useLogin = () => {
         const {email,password} = data;
         // Enviam dades a l'aPI i recollim resultat
         try{
-            const data = await fetch("https://backend.insjoaquimmir.cat/api/login", {
+            const data = await fetch("http://127.0.0.1:8000/api/login", {
                 headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -61,6 +63,7 @@ export const useLogin = () => {
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
                 console.log(resposta.authToken,usuari);
+                navigate("/inicioAuth");
             }else{
 
                 setMissatge(resposta.message);
