@@ -22,11 +22,11 @@ const App = () => {
         <Route path='/' element={<Inicio />} />
         <Route path='/about' element={<About />} />
         <Route path='/contacto' element={<Contacto />} />
-        {authToken ? (
+      
           <Route path='/inicioAuth' element={<InicioAuth />} />
-        ) : (
+     
           <Route path='/LoginRegister' element={<LoginRegister />} />
-        )}
+      
       </Routes>
       </UserContext.Provider>
     </>

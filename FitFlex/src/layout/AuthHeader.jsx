@@ -81,10 +81,9 @@ export const AuthHeader = () => {
                         {roles.map((v) => (
                             <>
                                 {(v == 'premium' ) ?
-                                <NavDropdown title="Cuotas" id="collasible-nav-dropdown">
-                                  <i className="bi bi-person-circle"></i> {nameOfUser}
-                                  <NavDropdown.Item href="#action/3.1">Gratis</NavDropdown.Item>
-                                  <NavDropdown.Item href="#action/3.2">Premium</NavDropdown.Item>
+                                <NavDropdown title= {[<i className="bi bi-person-circle"></i>,nameOfUser]} id="collasible-nav-dropdown">
+                                  <NavDropdown.Item href="#action/3.1">Tus datos</NavDropdown.Item>
+                                  <NavDropdown.Item href="#action/3.2">Datos deportivos</NavDropdown.Item>
                                 </NavDropdown>
                                     
                                 : 
