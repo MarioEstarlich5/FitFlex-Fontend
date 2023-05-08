@@ -3,6 +3,7 @@ import '../App.css'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { UserContext } from '../userContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -80,9 +81,12 @@ export const AuthHeader = () => {
                         {roles.map((v) => (
                             <>
                                 {(v == 'premium' ) ?
-                                    <Navbar.Collapse className='d-flex justify-content-end'>
-                                        <Nav.Link href=""><i className="bi bi-person-circle"></i> {nameOfUser}</Nav.Link>
-                                    </Navbar.Collapse>
+                                <NavDropdown title="Cuotas" id="collasible-nav-dropdown">
+                                  <i className="bi bi-person-circle"></i> {nameOfUser}
+                                  <NavDropdown.Item href="#action/3.1">Gratis</NavDropdown.Item>
+                                  <NavDropdown.Item href="#action/3.2">Premium</NavDropdown.Item>
+                                </NavDropdown>
+                                    
                                 : 
                                 <Navbar.Collapse className='d-flex justify-content-end'>
                                     <p>User : {nameOfUser}</p>

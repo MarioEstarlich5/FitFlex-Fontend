@@ -8,7 +8,6 @@ import { LoginRegister } from './auth/LogingRegister'
 import { Routes, Route } from "react-router-dom";
 import { UserContext } from "./userContext";
 import { InicioAuth } from './InicioAuth'
-
 const App = () => {
   let [authToken, setAuthToken] = useState("");
   let [usuari, setUsuari] = useState("");
@@ -23,8 +22,11 @@ const App = () => {
         <Route path='/' element={<Inicio />} />
         <Route path='/about' element={<About />} />
         <Route path='/contacto' element={<Contacto />} />
-        <Route path='/LoginRegister' element={<LoginRegister />} />
-        <Route path='/inicioAuth' element={<InicioAuth />} />
+        {authToken ? (
+          <Route path='/inicioAuth' element={<InicioAuth />} />
+        ) : (
+          <Route path='/LoginRegister' element={<LoginRegister />} />
+        )}
       </Routes>
       </UserContext.Provider>
     </>
