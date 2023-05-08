@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () => {
     let navigate = useNavigate();
-    let { usuari, setUsuari,authToken,setAuthToken,idUser,setIdUser } = useContext(UserContext)
+    let { usuari, setUsuari,setAuthToken,setIdUser,setNameOfUser,setRoles } = useContext(UserContext)
     let [missatge, setMissatge] = useState("");
 
     const checkAuthToken = async () => {
@@ -28,6 +28,8 @@ export const useLogin = () => {
                     setAuthToken(miStorage)
                     setUsuari(resposta.user.email);
                     setIdUser(resposta.user.id);
+                    setNameOfUser(resposta.user.name);
+                    setRoles(resposta.roles);
                     console.log(resposta.user);
                 } else {
                     setAuthToken("")
@@ -63,7 +65,7 @@ export const useLogin = () => {
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
                 console.log(resposta.authToken,usuari);
-                navigate("/inicioAuth");
+                navigate("/inicio");
             }else{
 
                 setMissatge(resposta.message);

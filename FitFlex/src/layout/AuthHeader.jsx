@@ -5,13 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { UserContext } from '../userContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const AuthHeader = () => {
     let navigate = useNavigate();
-    let { usuari,authToken,setAuthToken } = useContext(UserContext)
-    let [nameOfUser, setNameOfUser] = useState("")
-    let [roles, setRoles] = useState([]);
+    let { usuari,authToken,setAuthToken,nameOfUser,roles } = useContext(UserContext)
 
     const sendLogout = async (authToken) => {
         // Enviam dades a l'aPI i recollim resultat
@@ -40,51 +38,19 @@ export const AuthHeader = () => {
         }
         console.log("Logout okay");
       }
-      const sendUser = async () => {
-        // Enviam dades a l'aPI i recollim resultat
-        try {
-    
-          const data = await fetch("http://127.0.0.1:8000/api/user", {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              'Authorization': 'Bearer ' + authToken,
-            },
-            method: "GET"
-          })
-          const resposta = await data.json();
-          if (resposta.success === true) {
-            setNameOfUser(resposta.user.name);
-            setRoles(resposta.roles);
-          } else {
-            setMissatge(resposta.message);
-          }
-        } catch {
-          console.log("Xarxa desconectada");
-        }
-        console.log("Name okay");
-      }
-    
-    
-    useEffect(() => {
-    
-      sendUser();
-    }, [])
 
     return (
         <>
             <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="/inicioAuth"><img width="100 vh" src="../public/Fitflex.png" /></Navbar.Brand>
+                    <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" >
                         {roles.map((v) => (
                             <>
                                 {(v == 'premium' ) ?
-                                <NavDropdown title= {[<i className="bi bi-person-circle"></i>,nameOfUser]} id="collasible-nav-dropdown">
-                                  <NavDropdown.Item href="#action/3.1">Tus datos</NavDropdown.Item>
-                                  <NavDropdown.Item href="#action/3.2">Datos deportivos</NavDropdown.Item>
-                                </NavDropdown>
+                                <Link><i className="bi bi-person-circle"></i> {nameOfUser}</Link>
+                               
                                     
                                 : 
                                 <Navbar.Collapse className='d-flex justify-content-end'>
@@ -96,12 +62,12 @@ export const AuthHeader = () => {
                             </>
                         ))}
                         <Navbar.Collapse className='d-flex justify-content-end'>
-                            <Nav.Link 
+                            <Link 
                                 onClick={() => {
                                     sendLogout(authToken);
                                 }}>
                                 <i className="bi bi-box-arrow-left"></i> Logout
-                            </Nav.Link>
+                            </Link>
                         </Navbar.Collapse>
                     </Navbar.Collapse>
                 </Container>
