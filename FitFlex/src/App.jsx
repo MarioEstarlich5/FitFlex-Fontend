@@ -22,27 +22,28 @@ const App = () => {
   return (
     <>
 
-      <UserContext.Provider value={{ usuari, setUsuari, authToken, setAuthToken, idUser,setIdUser,nameOfUser,setNameOfUser,roles,setRoles}}  >
-      {authToken ? (
-        <>
-          <AuthHeader/>
-          <Routes>
+      <UserContext.Provider value={{ usuari, setUsuari, authToken, setAuthToken, idUser, setIdUser, nameOfUser, setNameOfUser, roles, setRoles }}  >
+        <Routes>
+              <Route path='/' element={<Inicio />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/contacto' element={<Contacto />} />
+              <Route path='/Login' element={<LoginRegister />} />
+            </Routes>
+        {authToken ? (
+          <>
+            <AuthHeader />
+            <Routes>
               <Route path='/inicio' element={<InicioAuth />} />
-          </Routes>
-        </>
-       ) : ( 
-         <>
-          <Header/>
-          <Routes>
-            <Route path='/' element={<Inicio />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contacto' element={<Contacto />} />
-            <Route path='/Login' element={<LoginRegister />} />
-            <Route path='/dietas' element={<DietasGrid />} />
-          </Routes>
-        </>
-       ) }
-     
+              <Route path='/dietas' element={<DietasGrid />} />
+            </Routes>
+          </>
+        ) : (
+          <>
+            <Header />
+            
+          </>
+        )}
+
       </UserContext.Provider>
     </>
   );

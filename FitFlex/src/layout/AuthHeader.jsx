@@ -8,71 +8,71 @@ import { UserContext } from '../userContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const AuthHeader = () => {
-    let navigate = useNavigate();
-    let { usuari,authToken,setAuthToken,nameOfUser,roles } = useContext(UserContext)
+  let navigate = useNavigate();
+  let { usuari, authToken, setAuthToken, nameOfUser, roles } = useContext(UserContext)
 
-    const sendLogout = async (authToken) => {
-        // Enviam dades a l'aPI i recollim resultat
-        try {
-          const data = await fetch("http://127.0.0.1:8000/api/logout", {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              'Authorization': 'Bearer ' + authToken,
-    
-            },
-            method: "POST"
-          })
-          const resposta = await data.json();
-          console.log(resposta);
-          if (resposta.success === true) {
-            setAuthToken("");
-            localStorage.clear();
-            navigate("/");
-            console.log("Logaout");
-          } else {
-            setMissatge(resposta.message);
-          }
-        } catch {
-          console.log("Xarxa desconectada");
-        }
-        console.log("Logout okay");
+  const sendLogout = async (authToken) => {
+    // Enviam dades a l'aPI i recollim resultat
+    try {
+      const data = await fetch("http://127.0.0.1:8000/api/logout", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          'Authorization': 'Bearer ' + authToken,
+
+        },
+        method: "POST"
+      })
+      const resposta = await data.json();
+      console.log(resposta);
+      if (resposta.success === true) {
+        setAuthToken("");
+        localStorage.clear();
+        navigate("/");
+        console.log("Logaout");
+      } else {
+        setMissatge(resposta.message);
       }
+    } catch {
+      console.log("Xarxa desconectada");
+    }
+    console.log("Logout okay");
+  }
 
-    return (
-        <>
-            <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
-                <Container>
-                    <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav" >
-                        {roles.map((v) => (
-                            <>
-                                {(v == 'premium' ) ?
-                                <Link><i className="bi bi-person-circle"></i> {nameOfUser}</Link>
-                               
-                                    
-                                : 
-                                <Navbar.Collapse className='d-flex justify-content-end'>
-                                    <p>User : {nameOfUser}</p>
-                                
-                                    <p key={v}> Rol: {v} </p>
-                                
-                                </Navbar.Collapse>}
-                            </>
-                        ))}
-                        <Navbar.Collapse className='d-flex justify-content-end'>
-                            <Link 
-                                onClick={() => {
-                                    sendLogout(authToken);
-                                }}>
-                                <i className="bi bi-box-arrow-left"></i> Logout
-                            </Link>
-                        </Navbar.Collapse>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </>
-    )
+  return (
+    <>
+      <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
+        <Container>
+          <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" >
+            {roles.map((v) => (
+              <>
+                {(v == 'premium') ?
+                  <Link><i className="bi bi-person-circle"></i> {nameOfUser}</Link>
+
+
+                  :
+                  <Navbar.Collapse className='d-flex justify-content-end'>
+                    <p>User : {nameOfUser}</p>
+
+                    <p key={v}> Rol: {v} </p>
+
+                  </Navbar.Collapse>}
+              </>
+            ))}
+            <Navbar.Collapse className='d-flex justify-content-end'>
+              <Link
+                onClick={() => {
+                  sendLogout(authToken);
+                }}>
+                <i className="bi bi-box-arrow-left"></i> Logout
+              </Link>
+            </Navbar.Collapse>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
+  )
 
 }

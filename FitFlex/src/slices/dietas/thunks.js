@@ -32,4 +32,5 @@ export const getDietas =  (authToken) =>{
             alert("Estem tenint problemes amb la xarxa o amb l'informació a les rutes");
         }
   }
+  
 }

@@ -31,6 +31,7 @@ export const useLogin = () => {
                     setNameOfUser(resposta.user.name);
                     setRoles(resposta.roles);
                     console.log(resposta.user);
+                    navigate("/inicio");
                 } else {
                     setAuthToken("")
                 }

@@ -1,23 +1,22 @@
 import React, { useContext } from 'react'
-import { useDispatch } from 'react-redux'
 import '../App.css'
 import { UserContext } from '../userContext'
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 export const DietaGrid = ({ dieta }) => {
-    const dispatch = useDispatch();
-    let ruta="http://127.0.0.1:8000/public/dietas/"+dieta.file.filepath
+    let ruta="http://127.0.0.1:8000/"+dieta.filepath
 
 
     return (
         <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '20rem' }} className='mt-5 p-3'>
                 <Card.Body>
-                    <Card.Title>{dieta.nombre}</Card.Title>
+                    <Card.Title>{dieta.name}</Card.Title>
                     <Card.Text>
                     {dieta.descripcion}
                     </Card.Text>
-                    <Link href={ruta} target="_blank">Descargar PDF</Link>
+                    <Link to={ruta} target="_blank">Descargar PDF</Link>
                 </Card.Body>
             </Card>
         </>

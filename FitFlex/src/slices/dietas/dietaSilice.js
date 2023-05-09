@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     dietas: [],
     dieta: {
-      nombre:"",
+      name:"",
       descripcion:"",
-      file:{filepath:""}
+      filepath:""
     },
     error: "",
 }
