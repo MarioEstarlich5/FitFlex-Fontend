@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="/"><img width="100 vh" src="../public/Fitflex.png" /></Navbar.Brand>
+        <Link to="/"><img width="100 vh" src="../public/Fitflex.png"/></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Navbar.Collapse className='d-flex justify-content-evenly'>
