@@ -24,7 +24,7 @@ const App = () => {
         <>
           <AuthHeader/>
           <Routes>
-              <Route path='/inicio' element={<InicioAuth />} />
+              <Route path='/inicio' element={<InicioAuth/>} />
           </Routes>
         </>
        ) : ( 
