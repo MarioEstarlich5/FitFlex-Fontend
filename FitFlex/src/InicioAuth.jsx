@@ -23,7 +23,7 @@ export const InicioAuth = () => {
                 </Col>
                 <Col>
                     <Card style={{ width: '25rem', height: '35rem' }} className='mt-5'>
-                        <Link to = "/inicio">
+                        <Link to = "/dietas">
                             <Card.Img variant="top" src="../public/dietas.png" height='20%' style={{ width: '25rem', height: '30rem' }}/>
                             <Card.Body>
                                 <Card.Title>Dietas</Card.Title>
