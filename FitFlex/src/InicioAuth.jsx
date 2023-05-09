@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { AuthHeader } from './layout/AuthHeader';
+import { Link } from 'react-router-dom';
 
 export const InicioAuth = () => {
 
@@ -23,12 +24,12 @@ export const InicioAuth = () => {
                 </Col>
                 <Col>
                     <Card style={{ width: '25rem', height: '35rem' }} className='mt-5'>
-                        <Card.Link href = "/inicioAuth">
+                        <Link to = "/dietas">
                             <Card.Img variant="top" src="../public/dietas.png" height='20%' style={{ width: '25rem', height: '30rem' }}/>
                             <Card.Body>
                                 <Card.Title>Dietas</Card.Title>
                             </Card.Body>
-                        </Card.Link>
+                        </Link>
                     </Card>
                 </Col>
                 <Col>

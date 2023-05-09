@@ -7,7 +7,8 @@ import { Contacto } from './layout/Contacto'
 import { LoginRegister } from './auth/LogingRegister'
 import { Routes, Route } from "react-router-dom";
 import { UserContext } from "./userContext";
-import { InicioAuth } from './InicioAuth'
+import { InicioAuth } from './InicioAuth';
+import { DietasGrid } from './dietas/DietasGrid';
 const App = () => {
   let [authToken, setAuthToken] = useState("");
   let [usuari, setUsuari] = useState("");
@@ -15,19 +16,19 @@ const App = () => {
 
   return (
     <>
-      <UserContext.Provider value={{ usuari, setUsuari, authToken, setAuthToken, idUser,setIdUser}}  >
+      <UserContext.Provider value={{ usuari, setUsuari, authToken, setAuthToken, idUser, setIdUser }}  >
 
-      <Header />
-      <Routes>
-        <Route path='/' element={<Inicio />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contacto' element={<Contacto />} />
-      
-          <Route path='/inicioAuth' element={<InicioAuth />} />
-     
-          <Route path='/LoginRegister' element={<LoginRegister />} />
-      
-      </Routes>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Inicio />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contacto' element={<Contacto />} />
+          
+          <Route path='/inicio' element={<InicioAuth />} />
+          <Route path='/Login' element={<LoginRegister />} />
+          <Route path='/dietas' element={<DietasGrid />} />
+
+        </Routes>
       </UserContext.Provider>
     </>
   );

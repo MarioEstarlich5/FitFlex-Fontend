@@ -63,7 +63,7 @@ export const useLogin = () => {
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
                 console.log(resposta.authToken,usuari);
-                navigate("/inicioAuth");
+                navigate("/inicio");
             }else{
 
                 setMissatge(resposta.message);

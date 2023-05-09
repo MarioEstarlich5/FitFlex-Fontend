@@ -1,9 +1,8 @@
 import React, { } from 'react'
 import '../App.css'
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
@@ -13,14 +12,10 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Navbar.Collapse className='d-flex justify-content-evenly'>
-            <Nav.Link href="/contacto">Contacto</Nav.Link>
-            <NavDropdown title="Cuotas" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Gratis</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Premium</NavDropdown.Item>
-              <NavDropdown.Divider />
-            </NavDropdown>
-            <Nav.Link href="/about">Que es FitFlex</Nav.Link>
-            <Nav.Link href="/LoginRegister">Login</Nav.Link>
+            <Link to="/contacto">Contacto</Link>
+            <Link to="/">Cuotas</Link>
+            <Link to="/about">Que es FitFlex</Link>
+            <Link to="/Login">Login</Link>
           </Navbar.Collapse>
         </Navbar.Collapse>
       </Container>
