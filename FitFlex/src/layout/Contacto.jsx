@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../App.css';
 import "leaflet/dist/leaflet.css";
 import { Marker, Popup, useMapEvents, MapContainer, TileLayer } from "react-leaflet";
+import  Footer  from './Footer';
 
 export const Contacto = () => {
 
@@ -27,6 +28,7 @@ export const Contacto = () => {
 
   return (
     <>
+
       <div className='posicion'>
         <MapContainer
           center={position}
@@ -39,7 +41,7 @@ export const Contacto = () => {
           <LocationMarker />
         </MapContainer>
       </div>
-
+      <Footer className="Footer"/>
     </>
   )
 }

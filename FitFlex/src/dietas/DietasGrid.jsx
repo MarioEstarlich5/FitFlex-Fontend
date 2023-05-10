@@ -3,6 +3,7 @@ import { UserContext } from "../userContext";
 import { DietaGrid } from './DietaGrid';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDietas } from '../slices/dietas/thunks';
+import Row from 'react-bootstrap/Row';
 
 export const DietasGrid = () => {
   let { usuari, authToken } = useContext(UserContext)
@@ -20,10 +21,12 @@ export const DietasGrid = () => {
       {!isLoading ?
 
         <div>
-          <img className='w-100' src="./public/Cabecera-dietas.png"></img>
-          {dietas.map((dieta) => (
-            (<DietaGrid key={dieta.id} dieta={dieta} />)
-          ))}
+          <Row xs={1} md={3} className="g-4 d-flex justify-content-center">
+            <img className='w-100' src="./public/Cabecera-dietas.png"></img>
+            {dietas.map((dieta) => (
+              (<DietaGrid key={dieta.id} dieta={dieta} />)
+            ))}
+          </Row>
 
         </div>
         :

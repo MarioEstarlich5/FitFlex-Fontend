@@ -45,30 +45,25 @@ export const AuthHeader = () => {
         <Container>
           <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav" >
+          <Navbar.Collapse className='d-flex justify-content-end' >
             {roles.map((v) => (
               <>
                 {(v == 'premium') ?
-                  <Link><i className="bi bi-person-circle"></i> {nameOfUser}</Link>
+                  <Link className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}<i class="bi bi-patch-check-fill"></i></Link>
 
 
                   :
-                  <Navbar.Collapse className='d-flex justify-content-end'>
-                    <p>User : {nameOfUser}</p>
-
-                    <p key={v}> Rol: {v} </p>
-
-                  </Navbar.Collapse>}
+                  <Link className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}</Link>}
               </>
             ))}
-            <Navbar.Collapse className='d-flex justify-content-end'>
-              <Link
+
+              <Link className="Link" 
                 onClick={() => {
                   sendLogout(authToken);
                 }}>
                 <i className="bi bi-box-arrow-left"></i> Logout
               </Link>
-            </Navbar.Collapse>
+          
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -6,7 +6,24 @@
   padding: 2rem;
   text-align: center;
 }
-
+.Link:hover{
+  text-decoration: underline;
+  color: #0d0d0d;
+}
+.Link{
+  color: #0d0d0d;
+}
+.link-user{
+  display: flex;
+  margin-right: 5%;
+ 
+}
+.bi-patch-check-fill{
+  color: #03FFD1;
+}
+.bi-person-circle{
+  margin-right: 8%;
+}
 .posicion{
   display: flex;
   justify-content: center;
@@ -69,6 +86,7 @@ h2 {
   margin-left: 5%;
   margin-right: 5%;
 }
+
 /* STRUCTURE */
 
 .wrapper {

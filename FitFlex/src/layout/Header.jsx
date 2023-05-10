@@ -12,10 +12,10 @@ export const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Navbar.Collapse className='d-flex justify-content-evenly'>
-            <Link to="/contacto">Contacto</Link>
-            <Link to="/">Cuotas</Link>
-            <Link to="/about">Que es FitFlex</Link>
-            <Link to="/Login">Login</Link>
+            <Link className="Link" to="/contacto">Contacto</Link>
+            <Link className="Link" to="/">Cuotas</Link>
+            <Link className="Link" to="/about">Que es FitFlex</Link>
+            <Link className="Link" to="/Login">Login</Link>
           </Navbar.Collapse>
         </Navbar.Collapse>
       </Container>

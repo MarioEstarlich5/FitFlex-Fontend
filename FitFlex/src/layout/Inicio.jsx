@@ -12,7 +12,7 @@ export const Inicio = () => {
                         src="./public/Carousel1.jpg"
                         alt="First slide"
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption className='bg-dark opacity-75'>
                         <h5>First slide label</h5>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
@@ -23,7 +23,7 @@ export const Inicio = () => {
                         src="./public/Carousel2.jpg"
                         alt="Second slide"
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption className='bg-dark opacity-75'>
                         <h5>Second slide label</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
@@ -34,10 +34,23 @@ export const Inicio = () => {
                         src="./public/Carousel3.jpg"
                         alt="Third slide"
                     />
-                    <Carousel.Caption>
+                    <Carousel.Caption className='bg-dark opacity-75'>
                         <h5>Third slide label</h5>
                         <p>
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        </p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img style={{ height: '45vh', width: '100vw' }}
+                        className="d-block w-100 "
+                        src="./public/Carousel4.png"
+                        alt="Third slide"
+                    />
+                    <Carousel.Caption className='bg-dark opacity-75'>
+                        <h5>Descuentos en Myprotein</h5>
+                        <p>
+                            Aprobecha las rebajas en Myprotein con el codigo fitflex y ponte a tope.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>
