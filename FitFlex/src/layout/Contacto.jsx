@@ -28,8 +28,8 @@ export const Contacto = () => {
 
   return (
     <>
-
-      <div className='posicion'>
+    
+      <div className='d-flex justify-content-center align-items-center mb-5'>
         <MapContainer
           center={position}
           zoom={13}
@@ -40,8 +40,8 @@ export const Contacto = () => {
           />
           <LocationMarker />
         </MapContainer>
+        <Footer className='mt-5'/>
       </div>
-      <Footer className="Footer"/>
     </>
   )
 }

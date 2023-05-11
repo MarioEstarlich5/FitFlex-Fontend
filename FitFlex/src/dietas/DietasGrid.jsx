@@ -30,7 +30,7 @@ export const DietasGrid = () => {
 
         </div>
         :
-        <div>Cargando...</div>
+        <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>
       }
 
     </>
