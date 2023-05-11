@@ -10,6 +10,9 @@ import { UserContext } from "./userContext";
 import { InicioAuth } from './InicioAuth';
 import { DietasGrid } from './dietas/DietasGrid';
 import { AuthHeader } from './layout/AuthHeader';
+import { CursosMenu } from './cursos/CursosMenu';
+import { CursosGrid } from './cursos/CursosGrid';
+import { Curso } from './cursos/Curso';
 
 const App = () => {
   let [authToken, setAuthToken] = useState("");
@@ -36,6 +39,8 @@ const App = () => {
             <Routes>
               <Route path='/inicio' element={<InicioAuth />} />
               <Route path='/dietas' element={<DietasGrid />} />
+              <Route path='/cursos' element={<> <CursosMenu/><CursosGrid /> </>} />
+              <Route path='/cursos/:id' element={<><Curso /></>} />
             </Routes>
           </>
         ) : (

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { PaginateLink } from './PaginateLink';
 
 const Paginate = () => {
-    const { pages } = useSelector((state) => state.places);
+    const { pages } = useSelector((state) => state.curso);
     console.log(pages);
   return (
     <>

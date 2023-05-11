@@ -9,7 +9,7 @@ export const InicioAuth = () => {
 
     return (
         <>
-            <Row xs={1} md={3} className="g-4">
+            <Row xs={1} md={3} className="g-4 ">
                 <Col>
                     <Card style={{ width: '25rem', height: '35rem' }} className='mt-5'>
                         <Link to = "/inicio">
@@ -32,7 +32,7 @@ export const InicioAuth = () => {
                 </Col>
                 <Col>
                     <Card style={{ width: '25rem', height: '35rem' }} className='mt-5'>
-                        <Link to = "/inicio">
+                        <Link to = "/cursos">
                             <Card.Img variant="top" src="../public/cursos.png"style={{ width: '25rem', height: '30rem' }} />
                             <Card.Body>
                                 <Card.Title>Cursos deportivos</Card.Title>

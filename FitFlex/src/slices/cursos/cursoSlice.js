@@ -4,7 +4,7 @@ const initialState = {
     curso: {
         filepath:"",
         titulo:"",
-        description:"",
+        descripcion:"",
         modalidad:"",
         duracion:0,
     },

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setPage } from '../slices/place/placeSlice';
-
+import { setPage } from '../slices/cursos/cursoSlice';
+import '../App.css'
 
 export const PaginateLink = ({ page }) => {
 

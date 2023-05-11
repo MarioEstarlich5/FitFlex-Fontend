@@ -1,45 +1,33 @@
 import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 import '../App.css'
 import { UserContext } from '../userContext'
-import { setFiltre } from '../slices/place/placeSlice'
-export const PlaceGrid = ({place}) => {
+export const CursoGrid = ({curso}) => {
     let { usuari,authToken } = useContext(UserContext)
     const dispatch = useDispatch();
-    const { filter} = useSelector((state) => state.places);
+    const { filter} = useSelector((state) => state.curso);
+
+    const filePath = curso.filepath
+    const trimmedPath = filePath.substring(filePath.indexOf('/'));
+
   return (
     <>
-        <div className='containerGrid'>
-        <p>@{place.author.name}</p>
-        <h2>{place.name}</h2>
-            <img src={"https://backend.insjoaquimmir.cat/storage/" + place.file.filepath} alt={place.name} height="400"width="300"/>
-            <div className='InfoPlace'>
-                {place.description}     
-            </div>
-            <div className='divFavorites'>
-                <i class="bi bi-star-fill"></i>
-                {place.favorites_count}
-            </div>
-            <div id='optionsPlaceGrid'>
-                {(usuari == place.author.email ) &&  
-                <Link className="headerLink" to={"/places/edit/" +place.id}><i className="bi bi-pencil-square"></i></Link>}
-
-                {(usuari == place.author.email ) &&
-                <button className='deleteButton'
-                    onClick={(e) => {
-                    dispatch(deletePlace(place.id,authToken));
-                    }}><i className="bi bi-trash3"></i>
-                </button>}
-                <button className='deleteButton'
-                    onClick={(e) => {
-                    e.preventDefault();
-                    dispatch(setFiltre({...filter,author:place.author.id}));
-                    }}><i className="bi bi-filter"></i>
-                </button>
-                <Link className="headerLink" to={"/places/" +place.id}><i className="bi bi-eye"></i></Link>
-            </div>
-        </div>
+        <Card style={{ width: '25rem', height:'15rem', backgroundImage: `url(http://127.0.0.1:8000/storage/${trimmedPath})` }} className="p-3 m-4 container-card-cuso">
+            
+            <Link to={"/cursos/" +curso.id}>
+                <Card.Body className='p-5 card-b'>
+                <Card.Title>{curso.titulo}</Card.Title>
+                <Card.Text>
+                    {curso.descripcion}
+                    {"Modalidad: "+curso.modalidad}<br></br>
+                    {"Duracion: "+curso.duracion+" Semanas"}
+                </Card.Text>
+               
+            </Card.Body>
+            </Link>
+        </Card>
     </>
   )
 }
