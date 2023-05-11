@@ -42,7 +42,7 @@ export const Inicio = () => {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img style={{ height: '45vh', width: '100vw' }}
+                    <img
                         className="d-block w-100 "
                         src="./public/Carousel4.png"
                         alt="Third slide"
@@ -50,7 +50,7 @@ export const Inicio = () => {
                     <Carousel.Caption className='bg-dark opacity-75'>
                         <h5>Descuentos en Myprotein</h5>
                         <p>
-                            Aprobecha las rebajas en Myprotein con el codigo fitflex y ponte a tope.
+                            Aprovecha las rebajas en Myprotein con el código fitflex y ponte a tope.
                         </p>
                     </Carousel.Caption>
                 </Carousel.Item>
