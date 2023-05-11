@@ -24,12 +24,6 @@
 .bi-person-circle{
   margin-right: 8%;
 }
-.posicion{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10%;
-}
 
 .leaflet-container{
   position: absolute !important;
