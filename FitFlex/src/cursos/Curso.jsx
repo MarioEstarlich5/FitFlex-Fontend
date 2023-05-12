@@ -36,7 +36,7 @@ export const Curso = () => {
       {curso.modalidad}
       {curso.duracion}
     </div>
-    : <p>Loading...</p>}
+    : <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
     </>
   )
 }

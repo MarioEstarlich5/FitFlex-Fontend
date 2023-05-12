@@ -45,7 +45,7 @@ export const AuthHeader = () => {
         <Container>
           <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse className='d-flex justify-content-end' >
+          <Navbar.Collapse className='d-flex justify-content-end'>
             {roles.map((v) => (
               <>
                 {(v == 'premium') ?
