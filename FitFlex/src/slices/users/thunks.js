@@ -1,4 +1,4 @@
-import { startLoading,setError, setUser } from "./UserSlice"
+import { startLoading,setError, setUser } from "./userSlice"
 
 export const getUser =  (authToken) =>{
     return async (dispatch) => {

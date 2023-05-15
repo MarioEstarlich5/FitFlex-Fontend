@@ -3,6 +3,7 @@ import dietaSlice from './slices/dietas/dietaSlice'
 import cursoSlice from './slices/cursos/cursoSlice'
 import sesionSlice from './slices/sesiones/sesionSlice'
 import userSlice from './slices/users/userSlice'
+import ejercicioSesionSlice from './slices/ejercicios/ejercicioSesionSlice'
 
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     curso:cursoSlice,
     sesion:sesionSlice,
     user:userSlice,
+    ejercicio:ejercicioSesionSlice
 
   }
 })

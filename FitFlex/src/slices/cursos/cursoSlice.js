@@ -28,9 +28,9 @@ name: "curso",
         state.isLoading = true;
 
     },
-    setUsuarioYaInscrito: (state) => {
+    setUsuarioYaInscrito: (state,action) => {
 
-        state.isLoading = true;
+        state.usuarioYaInscrito = action.payload
 
     },
     setCursos: (state, action) => {
