@@ -13,6 +13,7 @@ import { AuthHeader } from './layout/AuthHeader';
 import { CursosMenu } from './cursos/CursosMenu';
 import { CursosGrid } from './cursos/CursosGrid';
 import { Curso } from './cursos/Curso';
+import { User } from './user/User';
 
 const App = () => {
   let [authToken, setAuthToken] = useState("");
@@ -40,7 +41,8 @@ const App = () => {
               <Route path='/inicio' element={<InicioAuth />} />
               <Route path='/dietas' element={<DietasGrid />} />
               <Route path='/cursos' element={<> <CursosMenu/><CursosGrid /> </>} />
-              <Route path='/cursos/:id' element={<><Curso/></>} />
+              <Route path='/cursos/:id' element={<><Curso /></>} />
+              <Route path='/TuPerfil' element={<><User /></>} />
             </Routes>
           </>
         ) : (

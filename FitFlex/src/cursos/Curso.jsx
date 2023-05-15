@@ -61,7 +61,7 @@ console.log(roles);
 
     </div>
     :  <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
-        { !isLoading ? (<div className='reviewContainer'><SesionsList id={curso.id}/></div>): (<div><img width="100 vh" src="../public/loading-buffering.gif"/></div>) }
+        { !isLoading ? (<div className='reviewContainer'><SesionsList id={curso.id}/></div>): <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
 
     </>
   )

@@ -13,10 +13,11 @@ export const CursosMenu = () => {
   }); 
 
   let { idUser } = useContext(UserContext);
-  const { filter } = useSelector((state) => state.curso);
+  const { filter,  isLoading = true } = useSelector((state) => state.curso);
   const {searchValue} = formState
   return (
     <>
+    {!isLoading ?
     <div className="d-flex justify-content-center mt-5 ">
         <div className='PlacesPostMenu navbar'>
             <form className="form-inline form-serch">
@@ -33,7 +34,7 @@ export const CursosMenu = () => {
               }}>Vacia filtros</button>
             </form>
         </div>
-      </div>
+      </div>:<></>}
     </>
   )
 }
