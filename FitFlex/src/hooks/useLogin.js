@@ -65,6 +65,7 @@ export const useLogin = () => {
                 setAuthToken(resposta.authToken)
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
+                checkAuthToken();
                 console.log(resposta.authToken,usuari);
                 navigate("/inicio");
             }else{

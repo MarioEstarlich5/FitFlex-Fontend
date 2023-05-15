@@ -1,10 +1,10 @@
-import { startLoading,setDietas,setError } from "./dietaSlice"
+import { startLoading,setError, setUser } from "./UserSlice"
 
-export const getDietas =  (authToken) =>{
+export const getUser =  (authToken) =>{
     return async (dispatch) => {
         dispatch(startLoading());
 
-        let url = "http://127.0.0.1:8000/api/dietas" 
+        let url = "http://127.0.0.1:8000/api/user" 
 
         try{
         const data = await fetch(url, {
@@ -19,9 +19,7 @@ export const getDietas =  (authToken) =>{
         const resposta = await data.json();
             console.log(resposta);
             if (resposta.success === true) {
-                
-                dispatch(setDietas(resposta.data));
-                   
+                dispatch(setUser(resposta.user));                   
             }else{
                 dispatch(setError(resposta.message));
             }
