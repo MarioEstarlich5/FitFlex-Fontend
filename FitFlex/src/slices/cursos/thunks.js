@@ -121,6 +121,7 @@ export const getCurso = ( id, authToken) => {
 
       else{
             dispatch(setInscribe(true));
+            dispatch(setUsuarioYaInscrito(true));
       }
     }
   }
@@ -148,9 +149,9 @@ export const getCurso = ( id, authToken) => {
       if (resposta.success === true){
             console.log("me inscribo");
             dispatch(setInscribe(true));
+            dispatch(setUsuarioYaInscrito(true));
 
-      }else if(resposta.success == false){
-            console.log('entro en ya inscrito');
+      }else if(resposta.success === false){
             dispatch(setMissatge(resposta.message));
             dispatch(setUsuarioYaInscrito(true));
 

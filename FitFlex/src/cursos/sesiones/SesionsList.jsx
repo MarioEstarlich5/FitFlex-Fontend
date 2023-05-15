@@ -21,7 +21,7 @@ export const SesionsList = ({ id }) => {
       {sesions.map((sesion,index) => (
      
         <div key={sesions.id} >
-          <Sesion sesion={sesion} index={index}/>
+          <Sesion sesion={sesion} index={index+1}/>
         </div>
       ))}
     </>

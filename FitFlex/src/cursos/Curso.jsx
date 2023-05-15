@@ -13,7 +13,7 @@ export const Curso = () => {
 
   const dispatch = useDispatch();
 
-  const { curso , missatge = "", isLoading=true,inscribe=false,usuarioYaInscrito } = useSelector((state) => state.curso);
+  const { curso , missatge = "", isLoading=true,inscribe=false,usuarioYaInscrito=false } = useSelector((state) => state.curso);
   
   const filePath = curso.filepath
   console.log(filePath)
@@ -43,8 +43,7 @@ console.log(roles);
       {curso.descripcion}
       {curso.modalidad}
       {curso.duracion}
-      {console.log( roles)}
-      {console.log(usuarioYaInscrito)}
+
       {!inscribe  ?
         <button className="btn btn-outline-primary btn-p" type="submit"
           onClick={(e) => {
@@ -52,16 +51,16 @@ console.log(roles);
             dispatch(inscribeCurso(id,authToken))
           }}>Inscribete</button>
         :
-        (usuarioYaInscrito == true && roles[0] == 'usuario') ?
-        (<div>Si quieres inscribirte a más cursos, hazte premium</div>)
+        (usuarioYaInscrito == true && roles != 'usuario') ?
+        (<button className="btn btn-outline-primary btn-p">Inscrito</button>)  
         : 
-        (<button className="btn btn-outline-primary btn-p">Inscrito</button>) 
+        (<div>Si quieres inscribirte a más cursos, hazte premium</div>)
+         
         
     }
-
+    <div className='reviewContainer'><SesionsList id={curso.id}/></div>
     </div>
     :  <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
-        { !isLoading ? (<div className='reviewContainer'><SesionsList id={curso.id}/></div>): <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
 
     </>
   )
