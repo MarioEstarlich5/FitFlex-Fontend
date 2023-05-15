@@ -28,7 +28,7 @@ export const CursosGrid = () => {
             ) ) }
           </Row>
           :
-          <div>Carregant...</div>
+          <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>
         }
         
     </>

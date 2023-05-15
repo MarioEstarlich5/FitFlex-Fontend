@@ -40,7 +40,7 @@ const App = () => {
               <Route path='/inicio' element={<InicioAuth />} />
               <Route path='/dietas' element={<DietasGrid />} />
               <Route path='/cursos' element={<> <CursosMenu/><CursosGrid /> </>} />
-              <Route path='/cursos/:id' element={<><Curso /></>} />
+              <Route path='/cursos/:id' element={<><Curso/></>} />
             </Routes>
           </>
         ) : (

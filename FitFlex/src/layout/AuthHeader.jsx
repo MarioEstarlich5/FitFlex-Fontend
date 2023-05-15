@@ -38,7 +38,7 @@ export const AuthHeader = () => {
     }
     console.log("Logout okay");
   }
-
+  console.log(roles);
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">

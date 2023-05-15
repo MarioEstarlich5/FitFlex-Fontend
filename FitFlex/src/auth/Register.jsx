@@ -27,7 +27,7 @@ export const Register = ({ setCanvi }) => {
                 if (resposta.success === true) {
                     console.log(resposta.authToken);
                     setAuthToken(resposta.authToken)
-                    navigate("/inicioAuth");
+                    navigate("/inicio");
                 }else{
                     setMissatge=(resposta.message);
                 }

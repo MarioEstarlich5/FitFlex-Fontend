@@ -30,7 +30,7 @@ export const useLogin = () => {
                     setIdUser(resposta.user.id);
                     setNameOfUser(resposta.user.name);
                     setRoles(resposta.roles);
-                    console.log(resposta.user);
+                    console.log(resposta.data);
                     navigate("/inicio");
                 } else {
                     setAuthToken("")
