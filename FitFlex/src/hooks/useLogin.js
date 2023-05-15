@@ -30,7 +30,7 @@ export const useLogin = () => {
                     setIdUser(resposta.user.id);
                     setNameOfUser(resposta.user.name);
                     setRoles(resposta.roles);
-                    console.log(resposta.user);
+                    console.log(resposta.data);
                     navigate("/inicio");
                 } else {
                     setAuthToken("")
@@ -65,6 +65,7 @@ export const useLogin = () => {
                 setAuthToken(resposta.authToken)
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
+                checkAuthToken();
                 console.log(resposta.authToken,usuari);
                 navigate("/inicio");
             }else{

@@ -13,6 +13,7 @@ const initialState = {
     isLoading: true,
     missatge: "",
     inscribe: false,
+    usuarioYaInscrito:false,
     filter: { titulo: "", modalidad: ""},
 }
 export const cursoSlice = createSlice({
@@ -27,7 +28,11 @@ name: "curso",
         state.isLoading = true;
 
     },
+    setUsuarioYaInscrito: (state) => {
 
+        state.isLoading = true;
+
+    },
     setCursos: (state, action) => {
 
         state.cursos = action.payload
@@ -51,7 +56,6 @@ name: "curso",
     },
     setInscribe: (state,action) => {
 
-        //console.log("ABA")
 
         state.inscribe = action.payload
 
@@ -77,6 +81,6 @@ name: "curso",
 })
 
 // Action creators are generated for each case reducer function
-export const { startLoadingCursos,setCurso, setCursos, setMissatge,setInscribe,setPage ,setPages,setFiltre} = cursoSlice.actions
+export const { startLoadingCursos,setCurso, setCursos, setMissatge,setInscribe,setPage ,setPages,setFiltre,setUsuarioYaInscrito} = cursoSlice.actions
 
 export default cursoSlice.reducer

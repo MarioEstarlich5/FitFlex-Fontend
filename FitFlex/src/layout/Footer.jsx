@@ -8,8 +8,8 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-3">
             <Link to="/"><img width="100 vh" src="../public/Fitflex.png"/></Link>
-            <p className="mt-3">Hacer deporte desde cualquier lugar y en cualquier momento</p>
-            <p className="mt-3">&copy; 2023</p>
+            <p className="mt-2">Hacer deporte desde cualquier lugar y en cualquier momento</p>
+            <p className="">&copy; 2023</p>
           </div>
           <div className="col-md-6">
             <div className="row">

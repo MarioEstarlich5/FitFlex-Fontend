@@ -21,8 +21,8 @@ export const DietasGrid = () => {
       {!isLoading ?
 
         <div>
+          <img className='w-75 mt-5 mb-5' src="./public/Cabecera-dietas.png"></img>
           <Row xs={1} md={3} className="g-4 d-flex justify-content-center">
-            <img className='w-100' src="./public/Cabecera-dietas.png"></img>
             {dietas.map((dieta) => (
               (<DietaGrid key={dieta.id} dieta={dieta} />)
             ))}
@@ -30,7 +30,7 @@ export const DietasGrid = () => {
 
         </div>
         :
-        <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>
+        <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif"/></div>
       }
 
     </>

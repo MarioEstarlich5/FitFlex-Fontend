@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export const AuthHeader = () => {
   let navigate = useNavigate();
-  let { usuari, authToken, setAuthToken, nameOfUser, roles } = useContext(UserContext)
+  let { usuari, authToken, setAuthToken, nameOfUser, roles, setRoles, setNameOfUser } = useContext(UserContext)
 
   const sendLogout = async (authToken) => {
     // Enviam dades a l'aPI i recollim resultat
@@ -29,6 +29,8 @@ export const AuthHeader = () => {
         setAuthToken("");
         localStorage.clear();
         navigate("/");
+        setRoles("");
+        setNameOfUser("");
         console.log("Logaout");
       } else {
         setMissatge(resposta.message);
@@ -38,32 +40,25 @@ export const AuthHeader = () => {
     }
     console.log("Logout okay");
   }
-
+  console.log(roles);
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse className='d-flex justify-content-end' >
-            {roles.map((v) => (
-              <>
-                {(v == 'premium') ?
-                  <Link className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}<i class="bi bi-patch-check-fill"></i></Link>
+          <Navbar.Collapse className='d-flex justify-content-end'>
+            {(roles == 'premium') ?
+              <Link to='/TuPerfil' className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}<i className="bi bi-patch-check-fill"></i></Link>
+              :
+              <p className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}</p>}
+            <Link className="Link"
+              onClick={() => {
+                sendLogout(authToken);
+              }}>
+              <i className="bi bi-box-arrow-left"></i> Logout
+            </Link>
 
-
-                  :
-                  <Link className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}</Link>}
-              </>
-            ))}
-
-              <Link className="Link" 
-                onClick={() => {
-                  sendLogout(authToken);
-                }}>
-                <i className="bi bi-box-arrow-left"></i> Logout
-              </Link>
-          
           </Navbar.Collapse>
         </Container>
       </Navbar>

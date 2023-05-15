@@ -1,4 +1,4 @@
-import { startLoadingCursos,setCurso, setCursos, setMissatge,setInscribe,setPage ,setPages,setFiltre } from "./cursoSlice"
+import { startLoadingCursos,setCurso, setCursos, setMissatge,setInscribe,setPage ,setPages,setFiltre,setUsuarioYaInscrito } from "./cursoSlice"
 
 export const getCursos = (page, authToken) => {
     return async (dispatch, getState) => {
@@ -105,7 +105,7 @@ export const getCurso = ( id, authToken) => {
         const resposta = await data.json();
         
       if (resposta.success === true){
-        console.log("He dado favorite de prueva por que no hay ninguno");
+        console.log("Inscripcion de prueva por que no hay ninguna");
         const data = await fetch("http://127.0.0.1:8000/api/cursos/" + id +"/inscribe", {
               headers: {
               Accept: "application/json",
@@ -115,6 +115,7 @@ export const getCurso = ( id, authToken) => {
               method: "DELETE",
           })
           dispatch(setInscribe(false))
+          console.log("Borro inscripcion de prueba");
 
       } 
 
@@ -137,22 +138,25 @@ export const getCurso = ( id, authToken) => {
             },
             method: "POST",
         };
+
         const url = "http://127.0.0.1:8000/api/cursos/" + id +"/inscribe";
+   
 
         const data = await fetch(url, headers);
         console.log(data);
         const resposta = await data.json();
-        
       if (resposta.success === true){
             console.log("me inscribo");
             dispatch(setInscribe(true));
-            dispatch(setCurso());
 
-      } 
+      }else if(resposta.success == false){
+            console.log('entro en ya inscrito');
+            dispatch(setMissatge(resposta.message));
+            dispatch(setUsuarioYaInscrito(true));
 
-      else{
+      }else{
         console.log("Error al inscribirse");
-        console.log(resposta.message)
+        alert(resposta.message)
       }
     }
   }
