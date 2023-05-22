@@ -11,10 +11,10 @@ const Alert = () => {
       {
         title: '¡Hazte premium!',
         text: 'Suscríbete a nuestro plan premium para disfrutar de todas las funciones sin límites ni anuncios. ¡Accede a la página de suscripción haciendo clic en tu perfil!',
-        imageUrl: '/public/Fitflex.png',
+        imageUrl: '../public/Fitflex.png',
         imageWidth: 400,
         imageHeight: 200,
-        imageAlt: '/public/Custom image',
+        imageAlt: '../public/Custom image',
       },
       {
         title: '¡Descuento especial!',
