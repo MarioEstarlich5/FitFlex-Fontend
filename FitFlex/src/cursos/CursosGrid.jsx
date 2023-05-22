@@ -29,9 +29,9 @@ export const CursosGrid = () => {
               <CursoGrid key={curso.id} curso={curso} />
             ))}
           </Row>
-          <h2>Casos de éxito</h2>
+          <h2 className='mt-5'>Casos de éxito</h2>
           <div className="d-flex align-items-center justify-content-center mt-5">
-            <Carousel className="w-50" variant="ligth">
+            <Carousel className="grande" variant="ligth">
               <Carousel.Item>
                 <img
                   className="d-block w-100"

@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 export const Inicio = () => {
     return (
         <div className="d-flex align-items-center justify-content-center mt-5">
-            <Carousel className="w-50" variant="ligth">
+            <Carousel className="grande" variant="ligth">
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
