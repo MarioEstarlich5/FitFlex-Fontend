@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './App.css'
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -6,11 +6,17 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { UserContext } from './userContext';
 import Alert from './Alert';
+import useLogin from './hooks/useLogin';
 
 export const InicioAuth = () => {
 
     let { roles } = useContext(UserContext)
+    let { checkAuthToken } = useLogin();
 
+    useEffect(() => {
+        checkAuthToken();
+
+    }, []);
     return (
         <>
 

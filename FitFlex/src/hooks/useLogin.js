@@ -10,7 +10,6 @@ export const useLogin = () => {
     const checkAuthToken = async () => {
 
         let miStorage = localStorage.getItem("authToken") || "" ;
-
         if ( miStorage.length > 0 ){
 
             try {
@@ -73,10 +72,10 @@ export const useLogin = () => {
         }
     };
 
-    useEffect(() => {
-        checkAuthToken();
+    // useEffect(() => {
+    //     checkAuthToken();
 
-    }, []);
+    // }, []);
 
     return { sendLogin, checkAuthToken,missatge };
 }
