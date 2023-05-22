@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { UserContext } from './userContext';
-
+import Alert from './Alert';
 
 export const InicioAuth = () => {
 
@@ -72,6 +72,8 @@ export const InicioAuth = () => {
                         </Card>
                     </Col>
                 </Row>}
+            <Alert />
+
         </>
     )
 

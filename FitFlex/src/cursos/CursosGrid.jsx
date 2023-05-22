@@ -8,6 +8,7 @@ import { CursoGrid } from './CursoGrid'
 import '../App.css'
 import Row from 'react-bootstrap/Row';
 import Carousel from 'react-bootstrap/Carousel';
+import Alert  from '../Alert';
 
 export const CursosGrid = () => {
   let { usuari, authToken } = useContext(UserContext)
@@ -70,6 +71,7 @@ export const CursosGrid = () => {
         :
         <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif" /></div>
       }
+      <Alert/>
 
 
     </>

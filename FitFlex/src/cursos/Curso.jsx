@@ -6,11 +6,9 @@ import { getCurso, inscribeCurso } from '../slices/cursos/thunks';
 import { setInscribe } from '../slices/cursos/cursoSlice';
 import { SesionsList } from './sesiones/SesionsList';
 import Card from 'react-bootstrap/Card';
+import Alert from '../Alert';
 
 export const Curso = () => {
-
-  ;
-
   const dispatch = useDispatch();
 
   const { curso, missatge = "", isLoading = true, inscribe = false, usuarioYaInscrito = false } = useSelector((state) => state.curso);
@@ -35,42 +33,40 @@ export const Curso = () => {
   return (
     <>
       {!isLoading ?
-          <div >
-            <Card style={{ width: '75%' }} className='p-3 m-4 mx-auto'>
-              <Card.Img variant="top" src={urlTrimmed} />
-              <Card.Body>
-                <Card.Title>{curso.titulo}</Card.Title>
-                <Card.Text>
-                  {curso.descripcion}
-                </Card.Text>
-                <Card.Text>
-                  {curso.modalidad}
-                </Card.Text>
-                <Card.Text>
-                  {curso.duracion} Semanas
-                </Card.Text>
-              </Card.Body>
-            </Card>
-
-
-            {!inscribe ?
-              <button className="btn btn-outline-primary btn-p" type="submit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  dispatch(inscribeCurso(id, authToken))
-                }}>Inscribete</button>
+        <div >
+          <Card style={{ width: '75%' }} className='p-3 m-4 mx-auto'>
+            <Card.Img variant="top" src={urlTrimmed} />
+            <Card.Body>
+              <Card.Title>{curso.titulo}</Card.Title>
+              <Card.Text>
+                {curso.descripcion}
+              </Card.Text>
+              <Card.Text>
+                {curso.modalidad}
+              </Card.Text>
+              <Card.Text>
+                {curso.duracion} Semanas
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          {!inscribe ?
+            <button className="btn btn-outline-primary btn-p" type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(inscribeCurso(id, authToken))
+              }}>Inscribete</button>
+            :
+            (usuarioYaInscrito == true && roles != 'usuario') ?
+              (<button className="btn btn-outline-primary btn-p">Inscrito</button>)
               :
-              (usuarioYaInscrito == true && roles != 'usuario') ?
-                (<button className="btn btn-outline-primary btn-p">Inscrito</button>)
-                :
-                (<div>Si quieres inscribirte a más cursos hazte premium haciendo clic en tu nombre</div>)
-            }
-            {inscribe ?
-              <div className='w-75 mx-auto'><SesionsList id={curso.id} /></div>
-              : <></>}
-          </div>
+              (<div>Si quieres inscribirte a más cursos hazte premium haciendo clic en tu nombre</div>)
+          }
+          {inscribe ?
+            <div className='w-75 mx-auto'><SesionsList id={curso.id} /></div>
+            : <></>}
+        </div>
         : <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif" /></div>}
-
+      <Alert />
     </>
   )
 }

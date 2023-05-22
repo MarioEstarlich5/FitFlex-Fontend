@@ -47,7 +47,7 @@ export const AuthHeader = () => {
             {(roles == 'premium') ?
               <Link to='/TuPerfil' className="Link link-user" ><i className="bi bi-person-circle"></i>{nameOfUser}<i className="bi bi-patch-check-fill"></i></Link>
               :
-              <p className="Link link-user" ><i className="bi bi-person-circle"></i>{nameOfUser}</p>}
+              <Link to='/suscripcion' className="Link link-user" ><p className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}</p></Link>}
             <Link className="Link"
               onClick={() => {
                 sendLogout(authToken);

@@ -17,6 +17,8 @@ import { MisCursosGrid } from './cursos/MisCursosGrid';
 import { Curso } from './cursos/Curso';
 import { User } from './user/User';
 import { EjerciciosList } from './cursos/sesiones/ejercicios/EjerciciosList';
+import {Suscripcion} from './suscripciones/Suscripcion';
+
 
 const App = () => {
   let [authToken, setAuthToken] = useState("");
@@ -37,6 +39,7 @@ const App = () => {
               <Route path='/contacto' element={<Contacto />} />
               <Route path='/Login' element={<LoginRegister />} />
               <Route path='/Cuotas' element={<Cuotas />} />
+
             </Routes>
         {authToken ? (
           <>
@@ -49,6 +52,8 @@ const App = () => {
               <Route path='/TuPerfil' element={<><User /></>} />
               <Route path='/MisCursos' element={<><MisCursosGrid /> </>} />
               <Route path='/Sesion/:id' element={<><EjerciciosList /> </>} />
+              <Route path='/suscripcion' element={<><Suscripcion/></>} />
+
             </Routes>
           </>
         ) : (

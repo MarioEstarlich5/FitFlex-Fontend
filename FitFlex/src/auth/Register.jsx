@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 
 export const Register = ({ setCanvi }) => {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   let [missatge, setMissatge] = useState("");
   let { authToken,setAuthToken } = useContext(UserContext)
   const { register, handleSubmit,formState: { errors } } = useForm();
