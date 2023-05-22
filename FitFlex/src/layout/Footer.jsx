@@ -14,13 +14,13 @@ const Footer = () => {
           <div className="col-md-6">
             <div className="row">
               <div className="col-md-4">
-                <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i> Instagram</a>
+                <a href="https://www.instagram.com/"><i className="bi bi-instagram"></i> Instagram</a>
               </div>
               <div className="col-md-4">
-                <a href="https://twitter.com/"><i class="bi bi-twitter"></i> Twitter</a>
+                <a href="https://twitter.com/"><i className="bi bi-twitter"></i> Twitter</a>
               </div>
               <div className="col-md-4">
-                <a href="https://www.tiktok.com/"><i class="bi bi-tiktok"></i> TikTok</a>
+                <a href="https://www.tiktok.com/"><i className="bi bi-tiktok"></i> TikTok</a>
               </div>
             </div>
           </div>

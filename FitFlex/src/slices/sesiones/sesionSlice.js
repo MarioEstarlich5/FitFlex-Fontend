@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
-    sesions: [],
+    sesions: [{}],
     isLoading: false,
     missatge: "",
 }
@@ -13,8 +13,6 @@ export const sesionSlice = createSlice({
 
          startLoadingSesions: (state) => {
 
-            //console.log("ABA")
-
             state.isLoading = true;
 
         },
@@ -26,6 +24,14 @@ export const sesionSlice = createSlice({
             state.isLoading = false
         },
 
+        setEjerciciosSesiones:(state, ) => {
+
+            {sesions.map((sesion_ind) => (
+                sesions.id == idSesion ?  state.sesions = {...sesions,ejercicios}:sesion_ind+1
+            ))}
+            
+        },
+
         setMissatge: (state, action) => {
 
             state.error = action.payload
@@ -35,6 +41,6 @@ export const sesionSlice = createSlice({
     }
 })
 
-export const { startLoadingSesions,setSesions, setMissatge } = sesionSlice.actions;
+export const { startLoadingSesions,setSesions,setEjerciciosSesiones, setMissatge } = sesionSlice.actions;
 
 export default sesionSlice.reducer

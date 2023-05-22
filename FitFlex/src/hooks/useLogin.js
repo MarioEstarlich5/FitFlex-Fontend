@@ -14,7 +14,7 @@ export const useLogin = () => {
         if ( miStorage.length > 0 ){
 
             try {
-                const data = await fetch("http://127.0.0.1:8000/api/user", {
+                const data = await fetch("http://equip03.insjoaquimmir.cat/api/user", {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
@@ -24,13 +24,11 @@ export const useLogin = () => {
                 })
                 const resposta = await data.json();
                 if (resposta.success === true) {
-                    console.log(resposta);
                     setAuthToken(miStorage)
                     setUsuari(resposta.user.email);
                     setIdUser(resposta.user.id);
                     setNameOfUser(resposta.user.name);
                     setRoles(resposta.roles);
-                    console.log(resposta.data);
                     navigate("/inicio");
                 } else {
                     setAuthToken("")
@@ -46,11 +44,10 @@ export const useLogin = () => {
     }
 
     const sendLogin = async (data) => {
-        console.log("Comprovant credencials....");
         const {email,password} = data;
         // Enviam dades a l'aPI i recollim resultat
         try{
-            const data = await fetch("http://127.0.0.1:8000/api/login", {
+            const data = await fetch("http://equip03.insjoaquimmir.cat/api/login", {
                 headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
@@ -58,15 +55,12 @@ export const useLogin = () => {
                 method: "POST",
                 body: JSON.stringify({ email: email, password: password })
             })
-            console.log("despues del try");
             const resposta = await data.json();
-            console.log(resposta);
             if (resposta.success === true) {
                 setAuthToken(resposta.authToken)
                 localStorage.setItem("authToken",resposta.authToken);
                 setUsuari(email)
                 checkAuthToken();
-                console.log(resposta.authToken,usuari);
                 navigate("/inicio");
             }else{
 

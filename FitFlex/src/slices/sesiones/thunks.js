@@ -2,7 +2,7 @@ import { startLoadingSesions,setSesions, setMissatge} from "./sesionSlice"
 
 export const getSesions = ( id, authToken) => {
 
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
 
         dispatch(startLoadingSesions());
 
@@ -15,17 +15,16 @@ export const getSesions = ( id, authToken) => {
             },
             method: "GET",
         };
-        const url = "http://127.0.0.1:8000/api/cursos/" + id + "/sesiones"
+        const url = "http://equip03.insjoaquimmir.cat/api/cursos/" + id + "/sesiones"
 
         const data = await fetch(url, headers);
         const resposta = await data.json();
 
         if (resposta.success == true) {
             dispatch(setSesions(resposta.data));
-            console.log(resposta)
         }
         else {
             dispatch(setMissatge(resposta.message));
         }
-    };
+    };   
 }

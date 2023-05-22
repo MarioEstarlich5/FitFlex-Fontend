@@ -4,13 +4,12 @@ import { PaginateLink } from './PaginateLink';
 
 const Paginate = () => {
     const { pages } = useSelector((state) => state.curso);
-    console.log(pages);
   return (
     <>
       <ul className="pagination">
           { pages.map ( (page)=> (
                 
-                <PaginateLink page={page}/>
+                <PaginateLink key={page.id} page={page}/>
               
             ) ) }
         </ul>

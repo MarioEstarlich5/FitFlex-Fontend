@@ -13,8 +13,8 @@ export const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav" >
           <Navbar.Collapse className='d-flex justify-content-evenly'>
             <Link className="Link" to="/contacto">Contacto</Link>
-            <Link className="Link" to="/">Cuotas</Link>
-            <Link className="Link" to="/about">Que es FitFlex</Link>
+            <Link className="Link" to="/Cuotas">Cuotas</Link>
+            <Link className="Link" to="/about">¿Qué es FitFlex?</Link>
             <Link className="Link" to="/Login">Login</Link>
           </Navbar.Collapse>
         </Navbar.Collapse>

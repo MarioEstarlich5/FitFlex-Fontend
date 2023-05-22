@@ -9,7 +9,7 @@ export const DietaGrid = ({ dieta }) => {
     const filePath = dieta.filepath
     const trimmedPath = filePath.substring(filePath.indexOf('/'));
 
-    let ruta="http://127.0.0.1:8000/storage"+trimmedPath
+    let ruta="http://equip03.insjoaquimmir.cat/storage"+trimmedPath
 
 
     return (

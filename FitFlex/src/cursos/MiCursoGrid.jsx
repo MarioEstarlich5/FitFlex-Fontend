@@ -4,11 +4,9 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import '../App.css'
 import { UserContext } from '../userContext'
-export const CursoGrid = ({curso}) => {
+export const MiCursoGrid = ({curso}) => {
     let { usuari,authToken } = useContext(UserContext)
     const dispatch = useDispatch();
-    const { filter} = useSelector((state) => state.curso);
-
     const filePath = curso.filepath
     const trimmedPath = filePath.substring(filePath.indexOf('/'));
 
@@ -19,7 +17,7 @@ export const CursoGrid = ({curso}) => {
             <Link to={"/cursos/" +curso.id}>
                 <Card.Body className='p-5 card-b'>
                 <Card.Title>{curso.titulo}</Card.Title>
-                <Card.Text>
+                 <Card.Text>
                     {curso.descripcion}
                     {"Modalidad: "+curso.modalidad}<br></br>
                     {"Duracion: "+curso.duracion+" Semanas"}

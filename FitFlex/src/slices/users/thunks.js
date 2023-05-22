@@ -4,7 +4,7 @@ export const getUser =  (authToken) =>{
     return async (dispatch) => {
         dispatch(startLoading());
 
-        let url = "http://127.0.0.1:8000/api/user" 
+        let url = "http://equip03.insjoaquimmir.cat/api/user" 
 
         try{
         const data = await fetch(url, {
@@ -17,7 +17,6 @@ export const getUser =  (authToken) =>{
         })
 
         const resposta = await data.json();
-            console.log(resposta);
             if (resposta.success === true) {
                 dispatch(setUser(resposta.user));                   
             }else{

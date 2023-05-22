@@ -14,7 +14,7 @@ export const AuthHeader = () => {
   const sendLogout = async (authToken) => {
     // Enviam dades a l'aPI i recollim resultat
     try {
-      const data = await fetch("http://127.0.0.1:8000/api/logout", {
+      const data = await fetch("http://equip03.insjoaquimmir.cat/api/logout", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -24,34 +24,30 @@ export const AuthHeader = () => {
         method: "POST"
       })
       const resposta = await data.json();
-      console.log(resposta);
       if (resposta.success === true) {
         setAuthToken("");
         localStorage.clear();
         navigate("/");
         setRoles("");
         setNameOfUser("");
-        console.log("Logaout");
       } else {
         setMissatge(resposta.message);
       }
     } catch {
       console.log("Xarxa desconectada");
     }
-    console.log("Logout okay");
   }
-  console.log(roles);
   return (
     <>
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Link to="/inicio"><img width="100 vh" src="../public/Fitflex.png" /></Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse className='d-flex justify-content-end'>
+          <Navbar.Collapse className='d-lg-flex justify-content-end'>
             {(roles == 'premium') ?
-              <Link to='/TuPerfil' className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}<i className="bi bi-patch-check-fill"></i></Link>
+              <Link to='/TuPerfil' className="Link link-user" ><i className="bi bi-person-circle"></i>{nameOfUser}<i className="bi bi-patch-check-fill"></i></Link>
               :
-              <p className="Link link-user" ><i className="bi bi-person-circle"></i> {nameOfUser}</p>}
+              <p className="Link link-user" ><i className="bi bi-person-circle"></i>{nameOfUser}</p>}
             <Link className="Link"
               onClick={() => {
                 sendLogout(authToken);

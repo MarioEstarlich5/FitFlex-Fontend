@@ -4,7 +4,7 @@ export const getDietas =  (authToken) =>{
     return async (dispatch) => {
         dispatch(startLoading());
 
-        let url = "http://127.0.0.1:8000/api/dietas" 
+        let url = "http://equip03.insjoaquimmir.cat/api/dietas" 
 
         try{
         const data = await fetch(url, {

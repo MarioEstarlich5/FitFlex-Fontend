@@ -2,6 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     ejercicios: [],
+    ejercicio: {
+        titulo:"",
+        descripcion:"",
+        id_video:""
+      },
     isLoading: false,
     missatge: "",
 }
@@ -14,15 +19,13 @@ export const ejercicioSesionSlice = createSlice({
 
          startLoadingEjercicios: (state) => {
 
-            //console.log("ABA")
-
             state.isLoading = true;
 
         },
 
         setEjercicios: (state, action) => {
 
-            state.sesions = action.payload
+            state.ejercicios = action.payload
 
             state.isLoading = false
         },
@@ -36,6 +39,6 @@ export const ejercicioSesionSlice = createSlice({
     }
 })
 
-export const { startLoadingEjercicios,setEjercicios, setMissatge } = ejercicioSesionSlice.actions;
+export const { startLoadingEjercicios,setEjercicios, setMissatge, setEjercicio } = ejercicioSesionSlice.actions;
 
 export default ejercicioSesionSlice.reducer
