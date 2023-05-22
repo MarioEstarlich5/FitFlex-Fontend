@@ -13,7 +13,7 @@ export const setSuscripcion = ( authToken ) => {
             },
             method: "POST",
         };
-        const url = "http://127.0.0.1:8000/api/suscribete"
+        const url = "http://equip03.insjoaquimmir.cat/api/suscribete"
 
         const data = await fetch(url, headers);
         const resposta = await data.json();
