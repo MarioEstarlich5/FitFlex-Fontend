@@ -13,7 +13,7 @@ export const Register = ({ setCanvi }) => {
       const{Rname,Remail,Rpassword,Rpassword2}=data;
       try{
 
-            const data = await fetch("http://127.0.0.1:8000/api/register", {
+            const data = await fetch("http://equip03.insjoaquimmir.cat/api/register", {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json"
