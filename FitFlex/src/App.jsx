@@ -14,6 +14,8 @@ import { CursosMenu } from './cursos/CursosMenu';
 import { CursosGrid } from './cursos/CursosGrid';
 import { Curso } from './cursos/Curso';
 import { User } from './user/User';
+import {Suscripcion} from './suscripciones/Suscripcion';
+
 
 const App = () => {
   let [authToken, setAuthToken] = useState("");
@@ -33,6 +35,7 @@ const App = () => {
               <Route path='/about' element={<About />} />
               <Route path='/contacto' element={<Contacto />} />
               <Route path='/Login' element={<LoginRegister />} />
+              
             </Routes>
         {authToken ? (
           <>
@@ -43,6 +46,7 @@ const App = () => {
               <Route path='/cursos' element={<> <CursosMenu/><CursosGrid /> </>} />
               <Route path='/cursos/:id' element={<><Curso /></>} />
               <Route path='/TuPerfil' element={<><User /></>} />
+              <Route path='/suscripcion' element={<><Suscripcion/></>} />
             </Routes>
           </>
         ) : (

@@ -6,10 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurso, inscribeCurso } from '../slices/cursos/thunks';
 import { setInscribe } from '../slices/cursos/cursoSlice';
 import { SesionsList } from './sesiones/SesionsList';
+import Alert  from '../Alert';
 
 export const Curso = () => {
-
- ;
 
   const dispatch = useDispatch();
 
@@ -18,8 +17,8 @@ export const Curso = () => {
   const filePath = curso.filepath
   console.log(filePath)
   const trimmedPath = filePath.substring(filePath.indexOf('/'))
-  const urlTrimmed = "http://127.0.0.1:8000/storage/"+trimmedPath
-
+  const urlTrimmed = "http://127.0.0.1:8000/storage"+trimmedPath
+  console.log(urlTrimmed)
 
   const { pathname } = useLocation();
 
@@ -61,7 +60,7 @@ console.log(roles);
     <div className='reviewContainer'><SesionsList id={curso.id}/></div>
     </div>
     :  <div><img width="100 vh" src="../public/loading-buffering.gif"/></div>}
-
+    <Alert/>
     </>
   )
 }
