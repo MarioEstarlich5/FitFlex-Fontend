@@ -15,19 +15,19 @@ export const CursoGrid = ({ curso }) => {
     return (
         <>
 
-            <Card style={{ width: '25rem', height:'15rem', backgroundImage: `url(http://equip03.insjoaquimmir.cat/storage/${trimmedPath})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-3 m-4 container-card-cuso">
-            
-            <Link to={"/cursos/" +curso.id}>
-                <Card.Body className='p-5 card-b'>
-                <Card.Title>{curso.titulo}</Card.Title>
-                <Card.Text>
-                    {"Modalidad: "+curso.modalidad}<br></br>
-                    {"Duracion: "+curso.duracion+" Semanas"}
-                </Card.Text>
-               
-            </Card.Body>
-            </Link>
-        </Card>
+            <Card style={{ width: '25rem', height: '15rem', backgroundImage: `url(http://equip03.insjoaquimmir.cat/storage/${trimmedPath})`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="p-3 m-4 container-card-cuso">
+
+                <Link to={"/cursos/" + curso.id}>
+                    <Card.Body className='p-5 card-b'>
+                        <Card.Title>{curso.titulo}</Card.Title>
+                        <Card.Text>
+                            {"Modalidad: " + curso.modalidad}<br></br>
+                            {"Duracion: " + curso.duracion + " Semanas"}
+                        </Card.Text>
+
+                    </Card.Body>
+                </Link>
+            </Card>
 
         </>
     )
