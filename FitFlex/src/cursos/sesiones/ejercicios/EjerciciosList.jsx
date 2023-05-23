@@ -29,14 +29,14 @@ export const EjerciciosList = () => {
             (<Ejercicio key={ejercicios.id} ejercicio={ejercicio_ind} index={index + 1} />)
           ))}
           <Link className='Link' to="/MisCursos">Volver a mis Cursos</Link>
-          {!complet ? <button className='mt-5 mx-5'
+          {!complet ? <button className='mt-5 mx-5 btn btn-outline-primary btn-p'
             onClick={() => {
               dispatch(addUsuarioSesiones(idSesion, authToken));
             }}>
             ¿Completada?
           </button>
           :
-          <button className='mt-5 mx-5'>
+          <button className='mt-5 mx-5 btn btn-outline-primary btn-p'>
             Sesion completada
           </button>}  
           

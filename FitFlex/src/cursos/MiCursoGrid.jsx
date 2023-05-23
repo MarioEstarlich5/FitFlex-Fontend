@@ -4,28 +4,25 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import '../App.css'
 import { UserContext } from '../userContext'
-export const MiCursoGrid = ({curso}) => {
-    let { usuari,authToken } = useContext(UserContext)
-    const dispatch = useDispatch();
-    const filePath = curso.filepath
-    const trimmedPath = filePath.substring(filePath.indexOf('/'));
+export const MiCursoGrid = ({ curso }) => {
+  let { usuari, authToken } = useContext(UserContext)
+  const dispatch = useDispatch();
+  const filePath = curso.filepath
+  const trimmedPath = filePath.substring(filePath.indexOf('/'));
 
   return (
     <>
-        <Card style={{ width: '25rem', height:'15rem', backgroundImage: `url(http://equip03.insjoaquimmir.cat/storage/${trimmedPath})` }} className="p-3 m-4 container-card-cuso">
-            
-            <Link to={"/cursos/" +curso.id}>
-                <Card.Body className='p-5 card-b'>
-                <Card.Title>{curso.titulo}</Card.Title>
-                 <Card.Text>
-                    {curso.descripcion}
-                    {"Modalidad: "+curso.modalidad}<br></br>
-                    {"Duracion: "+curso.duracion+" Semanas"}
-                </Card.Text>
-               
-            </Card.Body>
-            </Link>
-        </Card>
+      <Card className="p-3 m-4 container-card-cuso">
+        <Link to={"/cursos/" + curso.id}>
+          <Card.Body className='p-5 card-b' style={{ backgroundImage: `url(http://equip03.insjoaquimmir.cat/storage/${trimmedPath})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <Card.Title>{curso.titulo}</Card.Title>
+            <Card.Text>
+              {"Modalidad: " + curso.modalidad}<br></br>
+              {"Duracion: " + curso.duracion + " Semanas"}
+            </Card.Text>
+          </Card.Body>
+        </Link>
+      </Card>
     </>
   )
 }
