@@ -11,7 +11,7 @@ import Alert from '../Alert';
 export const Curso = () => {
   const dispatch = useDispatch();
 
-  const { curso, missatge = "", isLoading = true, inscribe = false, usuarioYaInscrito = false } = useSelector((state) => state.curso);
+  const { curso, missatge = "", isLoading = true, inscribe = false, usuarioYaInscrito = false, cursoGratis } = useSelector((state) => state.curso);
 
   const filePath = curso.filepath
   const trimmedPath = filePath.substring(filePath.indexOf('/'))
@@ -57,13 +57,15 @@ export const Curso = () => {
               }}>Inscribete</button>
             :
             (usuarioYaInscrito == true && roles != 'usuario') ?
-              (<button className="btn btn-outline-primary btn-p">Inscrito</button>)
+              (<><button className="btn btn-outline-primary btn-p">Inscrito</button>
+                <div className='w-75 mx-auto'><SesionsList id={curso.id} /></div></>)
               :
-              (<div>Si quieres inscribirte a más cursos hazte premium haciendo clic en tu nombre</div>)
+              (<><div>Si quieres inscribirte a más cursos hazte premium haciendo clic en tu nombre</div>
+                {cursoGratis == curso.id && roles == 'usuario' ?
+                  <div className='w-75 mx-auto'><SesionsList id={curso.id} /></div> :
+                  <></>}
+              </>)
           }
-          {inscribe ?
-            <div className='w-75 mx-auto'><SesionsList id={curso.id} /></div>
-            : <></>}
         </div>
         : <div className='margen'><img width="100 vh" src="../public/loading-buffering.gif" /></div>}
       <Alert />

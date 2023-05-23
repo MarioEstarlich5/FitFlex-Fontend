@@ -1,4 +1,4 @@
-import { startLoadingCursos, setCurso, setCursos, setMissatge, setInscribe, setPage, setPages, setFiltre, setUsuarioYaInscrito } from "./cursoSlice"
+import { startLoadingCursos, setCurso, setCursos, setMissatge, setInscribe, setPage, setPages, setFiltre, setUsuarioYaInscrito,setCursoGratis } from "./cursoSlice"
 
 export const getCursos = (page, authToken) => {
     return async (dispatch, getState) => {
@@ -141,6 +141,7 @@ export const inscribeCurso = (id, authToken) => {
         if (resposta.success === true) {
             dispatch(setInscribe(true));
             dispatch(setUsuarioYaInscrito(true));
+            dispatch(setCursoGratis(id))
 
         } else if (resposta.success === false) {
             dispatch(setMissatge(resposta.message));
